@@ -1,9 +1,20 @@
-package org.example.lab2;
+package org.example.lab3;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MathUtils {
 
     public int total (int a, int b){
         return a + b;
+    }
+
+    public int division (int a, int b){
+
+        if (b == 0) {
+            throw new ArithmeticException("B need number > 0.");
+        }
+        return a / b;
     }
 
     public int effectiveness(int... a){
@@ -18,6 +29,53 @@ public class MathUtils {
         }
 
         return result;
+    }
+
+    public Long getElementAtIndex(int index) {
+        List<Long> list = new ArrayList<>();
+
+        list.add(2L); // Thêm phần tử 2 vào danh sách
+        list.add(3L);
+        list.add(4L);
+        list.add(5L);
+
+        if (index >= 0 && index < list.size()) {
+            return list.get(index); // Trả về phần tử tại chỉ mục index
+        } else {
+            // Xử lý nếu chỉ mục không hợp lệ
+            throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+    }
+
+//    public static HashMap<String, String> login(HashMap<String, String> accounts, String username, String password) {
+//        if (accounts.containsKey(username)) {
+//            String storedPassword = accounts.get(username);
+//            if (password.equals((storedPassword))) {
+//                return "Login success";
+//            } else {
+//                return "Login false";
+//            }
+//        } else {
+//            return "Your accounts was not hoạt động";
+//        }
+//    }
+
+    public User getUserByAccountAndPassword(List<User> userList, String userName, String password) {
+        if (userList.isEmpty() || userList.size() == 0) {
+            throw new NullPointerException("User list is null");
+        }
+
+        for (User user : userList) {
+            if (user.getUserName().equalsIgnoreCase(userName)) {
+                if (user.getPass().equals(password)) {
+                    return user;
+                } else {
+                    throw new IllegalArgumentException("Invalid password");
+                }
+            }
+        }
+
+        return null; // Trả về null nếu không tìm thấy người dùng với tên người dùng cụ thể và mật khẩu đã cung cấp
     }
 
 }

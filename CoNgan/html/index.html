@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button</title>
+    <script>
+        function displayMessage() {
+            document.getElementById("message").textContent = "Don't touch me yet";
+            document.getElementById("message").style.color = "red";
+        }
+
+        function displayMessage1() {
+            document.getElementById("message1").textContent = "Don't touch me yet";
+            document.getElementById("message1").style.color = "dark";
+        }
+
+        function displayMessage2() {
+            document.getElementById("message2").textContent = "Don't touch me yet";
+            document.getElementById("message2").style.color = "light";
+        }
+    </script>
+</head>
+<body>
+    <button class="btn-click" onclick="displayMessage()">Click</button>
+    <h2 id="message"></h2>
+
+    <button class="btn-click" onclick="displayMessage1()">Dark</button>
+    <h2 id="message1"></h2>
+
+    <button class="btn-click" onclick="displayMessage2()">light</button>
+    <h2 id="message2"></h2>
+</body>
+</html>
